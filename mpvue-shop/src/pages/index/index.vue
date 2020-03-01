@@ -12,13 +12,16 @@
 
 <script>
 import amapFile from "../../utils/amap-wx";
+import {mapState, mapMutations} from 'vuex';
 export default {
-  data() {
-    return {
-      cityName: '北京'
-    }
+  data: {
+    
+  },
+  computed: {
+    ...mapState(['cityName'])
   },
   methods: {
+    ...mapMutations(['update']),
     toMap(){
       wx.getLocation({
         success: res => {
@@ -45,7 +48,7 @@ export default {
       });
     },
     getCityName () {
-      let myAmapFun = new amapFile.AMapWX({key:'256d94ac927c73a25e9177d789a1d060'});
+      let myAmapFun = new amapFile.AMapWX({key:'7466f0fba50d3fea00187e6223d23b63'});
       myAmapFun.getRegeo({
         success: function (data) {
           // 成功回调
@@ -55,8 +58,7 @@ export default {
         fail: function (err) {
           // 失败回调
           console.log(err)
-          // _this.cityName = '北京'
-          this.update({ cityName: '北京' })
+          this.update({cityName: '北京'})
         }
       })
     }
