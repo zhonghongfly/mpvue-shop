@@ -6,7 +6,9 @@
     "pages/cart/main",
     "pages/my/main",
     "pages/logs/main",
-    "pages/map/main"
+    "pages/map/main",
+    "pages/brandList/main",
+    "pages/goods/main"
   ],
   "permission": {
     "scope.userLocation": {
@@ -17,8 +19,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "斯贝儿",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#666",

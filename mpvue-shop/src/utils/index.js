@@ -52,11 +52,11 @@ function request(url, method, data, header = {}) {
 }
 //get
 export function get(url, data) {
-  request(url, "GET", data);
+  return request(url, "GET", data);
 }
 //post
 export function post(url, data) {
-  request(url, "POST", data);
+  return request(url, "POST", data);
 }
 export default {
   formatNumber,
