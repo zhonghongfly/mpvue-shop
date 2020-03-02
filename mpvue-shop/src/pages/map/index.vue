@@ -34,13 +34,13 @@ export default {
   methods: {
     ...mapMutations(['update']),
     getMapAddress(){
+      let _this = this;
       let myAmapFn = new amapFile.AMapWX({key: '7466f0fba50d3fea00187e6223d23b63'});
       myAmapFn.getRegeo({
         iconPath: '/static/images/marker.png',
         iconWidth: 22,
         iconHeight: 32,
         success: data => {
-          console.log(data);
           let marker = [{
             id: data[0].id,
             longitude: data[0].longitude, //经度
@@ -48,22 +48,22 @@ export default {
             width: data[0].width,
             height: data[0].height
           }];
-          this.markers = marker;
-          this.longitude = data[0].longitude;
-          this.latitude = data[0].latitude;
+          _this.markers = marker;
+          _this.longitude = data[0].longitude;
+          _this.latitude = data[0].latitude;
         },
         fail: err => console.log(err)
       });
     },
     bindInput(){
+      let _this = this;
       let myAmapFn = new amapFile.AMapWX({key: '7466f0fba50d3fea00187e6223d23b63'});
       myAmapFn.getInputtips({
-        keywords: this.keywords,
+        keywords: _this.keywords,
         location: '',
         success: data => {
-          console.log(data);
           if(data && data.tips){
-            this.tips = data.tips;
+            _this.tips = data.tips;
           }
         }
       });
